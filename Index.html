@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supplement Claim Linter: Flag Overpromising Skin Care Copy</title>
+  <meta name="description" content="A small, dependency-free JavaScript tool that flags overpromising claims in skin brightening supplement copy and explains why each phrase is a problem.">
+
+  <!-- Open Graph: replace USERNAME with your GitHub username if it changes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Supplement Claim Linter">
+  <meta property="og:description" content="Paste supplement marketing copy and see which phrases overpromise, with a plain-language reason for each.">
+  <meta property="og:image" content="https://nubestimmunegummies.github.io/supplement-claim-linter/assets/cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <h1>Supplement Claim Linter</h1>
+      <p class="lede">Paste skin brightening supplement copy below. Phrases that overpromise get marked, with a short reason and a more realistic alternative.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="tool" aria-labelledby="tool-heading">
+      <h2 id="tool-heading" class="visually-hidden">Linter</h2>
+
+      <div class="panel">
+        <label for="copy">Marketing copy</label>
+        <textarea id="copy" rows="7" spellcheck="true" placeholder="Paste product copy here…"></textarea>
+        <div class="actions">
+          <button type="button" id="load-sample">Load sample copy</button>
+          <button type="button" id="clear" class="quiet">Clear</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Marked-up preview</h3>
+        <p id="preview" class="preview" aria-live="polite"></p>
+        <p class="legend">
+          <span class="key key-high">High</span> claims that contradict the evidence
+          <span class="key key-medium">Medium</span> claims that need context
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Findings <span id="summary" class="summary"></span></h3>
+        <ol id="findings" class="findings"></ol>
+      </div>
+    </section>
+
+    <section class="explainer" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why these phrases get flagged</h2>
+      <p>Each rule is based on a well-documented myth about skin brightening supplements:</p>
+      <dl>
+        <dt>“Permanent” results</dt>
+        <dd>Natural skin tone is largely set by genetics, through how much melanin the skin produces and the balance of eumelanin and pheomelanin. Some ingredients may help dark spots look softer over time, but they don't change a person's baseline shade.</dd>
+        <dt>Results “in 7 days” or “overnight”</dt>
+        <dd>Skin renews on a cycle of roughly a month in younger adults, and slower with age. Studies on oral glutathione typically measure results at 8 to 12 weeks.</dd>
+        <dt>“FDA-approved”</dt>
+        <dd>In the U.S., the FDA does not approve dietary supplements before they are sold.</dd>
+        <dt>“Skip sunscreen”</dt>
+        <dd>UV exposure keeps triggering new pigment. No supplement replaces daily sun protection.</dd>
+        <dt>“Guaranteed results”</dt>
+        <dd>Results vary with genetics, age, and daily routine.</dd>
+      </dl>
+      <p class="source">Background on these myths: <a href="https://www.nubest.com/blogs/beauty-care/pills-that-lighten-skin" rel="noopener" target="_blank">Debunk Top Myths About Pills That Lighten Skin</a> (NuBest editorial team).</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Built with plain HTML, CSS, and JavaScript. Source code on <a href="https://github.com/nubestimmunegummies/supplement-claim-linter">GitHub</a>.</p>
+    <p class="fine">Disclosure: the author works with NuBest Nutrition, whose article is cited as background for the rules. This is a text-processing demo, not health, medical, or legal advice.</p>
+  </footer>
+</body>
+</html>
